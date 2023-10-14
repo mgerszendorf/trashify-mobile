@@ -12,6 +12,7 @@ struct PersonHeaderView: View {
     @EnvironmentObject var personTabViewModel: PersonTabViewModel
     @EnvironmentObject var darkModeManager: DarkModeManager
     
+    
     var body: some View {
         VStack() {
             HStack {
