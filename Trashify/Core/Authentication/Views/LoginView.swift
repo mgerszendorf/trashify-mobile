@@ -10,12 +10,19 @@ import SwiftUI
 struct LoginView: View {
     @Binding var isLoggedIn: Bool
     @EnvironmentObject var loginViewModel: LoginViewModel
+    @EnvironmentObject var resetPasswordViewModel: ResetPasswordViewModel
+    @EnvironmentObject var resendVerificationViewModel: ResendVerificationViewModel
     @State private var loginResult: Result<Void, LoginError>?
     @State private var showAlert = false
+    @State private var showForgotPasswordAlert = false
+    @State private var showResendVerificationAlert = false
     @State private var alertMessage = ""
+    @State private var alertTitle = ""
+    @State private var isResetPasswordPresented = false
+    @State private var isResendVerificationPresented = false
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 15, content: {
+        VStack(alignment: .leading, spacing: 10, content: {
             // Header
             VStack(alignment: .leading) {
                 Text("Trashify Welcomes You Back 🌱")
@@ -65,6 +72,38 @@ struct LoginView: View {
             .cornerRadius(10)
             .padding(.horizontal)
             
+            // Forgot Password
+            HStack {
+                Spacer()
+                Text("Forgot password?")
+                    .foregroundColor(AppColors.darkerGreen)
+                    .underline()
+                    .onTapGesture {
+                        isResetPasswordPresented = true
+                    }
+            }
+            .frame(width: UIScreen.main.bounds.width - 64, height: 50)
+            .font(.system(size: 15))
+            .padding(.horizontal)
+
+            // Conditional 'Email not confirmed' section
+            if alertMessage == "Email not confirmed." {
+                VStack {
+                    Text("Please verify your account. Did not get the email?")
+                        .font(.footnote)
+                        .foregroundColor(AppColors.darkerGreen)
+                    Text("Click here to re-send")
+                        .font(.footnote)
+                        .foregroundColor(AppColors.darkerGreen)
+                        .fontWeight(.semibold)
+                        .onTapGesture {
+                            isResendVerificationPresented = true
+                        }
+                }
+                .padding(.horizontal)
+                .padding(.bottom, 20)
+            }
+            
             // Login button
             Button("Login") {
                 Task {
@@ -72,6 +111,8 @@ struct LoginView: View {
                     switch result {
                     case .success(_):
                         isLoggedIn = true
+                        loginViewModel.email = ""
+                        loginViewModel.password = ""
                     case .failure(let error):
                         if !isLoggedIn {
                             showAlert = true
@@ -95,6 +136,8 @@ struct LoginView: View {
                         message: Text(alertMessage),
                         dismissButton: .default(Text("OK"), action: {
                             showAlert = false
+                            loginViewModel.email = ""
+                            loginViewModel.password = ""
                         })
                 )
             }
@@ -117,6 +160,24 @@ struct LoginView: View {
                 }
             }
             .padding(.bottom, 20)
+            .sheet(isPresented: $isResetPasswordPresented) {
+                ResetPasswordView(showForgotPasswordAlert: $showForgotPasswordAlert, alertMessage: $alertMessage, alertTitle: $alertTitle)
+                    .alert(isPresented: $showForgotPasswordAlert, content: {
+                        Alert(title: Text(alertTitle), message: Text(alertMessage), dismissButton: .default(Text("OK")) {
+                            isResetPasswordPresented = false
+                            resetPasswordViewModel.email = ""
+                        })
+                    })
+            }
+            .sheet(isPresented: $isResendVerificationPresented) {
+                ResendVerificationView(showResendVerificationAlert: $showResendVerificationAlert, alertMessage: $alertMessage, alertTitle: $alertTitle)
+                    .alert(isPresented: $showResendVerificationAlert, content: {
+                        Alert(title: Text(alertTitle), message: Text(alertMessage), dismissButton: .default(Text("OK")) {
+                            isResendVerificationPresented = false
+                            resendVerificationViewModel.email = ""
+                        })
+                    })
+            }
         }
     }
 }
@@ -128,4 +189,3 @@ struct LoginView_Previews: PreviewProvider {
         LoginView(isLoggedIn: $isLoggedIn)
     }
 }
-

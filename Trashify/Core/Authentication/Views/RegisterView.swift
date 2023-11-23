@@ -119,10 +119,10 @@ struct RegisterView: View {
             .shadow(color: AppColors.darkerGreen.opacity(0.2), radius: 10, x: 0, y: 10)
             .alert(isPresented: $showAlert) {
                 switch registerResult {
-                case .failure(let error):
-                    return Alert(title: Text("Error"), message: Text(error.errorDescription ?? "Unknown Error"), dismissButton: .default(Text("OK")))
-                default:
-                    return Alert(title: Text("Success"), message: Text("Registration successful"), dismissButton: .default(Text("OK")))
+                    case .failure(let error):
+                        return Alert(title: Text("Error"), message: Text(error.errorDescription ?? "Unknown Error"), dismissButton: .default(Text("OK")))
+                    default:
+                        return Alert(title: Text("Success"), message: Text("Please check your email to confirm registration."), dismissButton: .default(Text("OK")))
                 }
             }
         })
