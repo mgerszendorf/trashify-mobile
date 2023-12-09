@@ -50,8 +50,7 @@
 		E089D8BC2AEAC99400DE9748 /* TrashWizardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E089D8BB2AEAC99400DE9748 /* TrashWizardViewModel.swift */; };
 		E089D8BE2AEAC9A700DE9748 /* TrashWizardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E089D8BD2AEAC9A700DE9748 /* TrashWizardView.swift */; };
 		E089D8C12AEAE55500DE9748 /* TrashClassifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E089D8C02AEAE55500DE9748 /* TrashClassifier.swift */; };
-		E0D0B8CA2B24E668003497FA /* TrashImageClassificationModel.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = E0D0B8C92B24E668003497FA /* TrashImageClassificationModel.mlmodel */; };
-		E0D0B8CC2B24E95A003497FA /* TrashImageClassificationModel.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = E0D0B8CB2B24E959003497FA /* TrashImageClassificationModel.mlpackage */; };
+		E0D0B8CE2B24EEAB003497FA /* TrashImageClassificationModel.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = E0D0B8CD2B24EEAB003497FA /* TrashImageClassificationModel.mlpackage */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -100,8 +99,7 @@
 		E089D8BB2AEAC99400DE9748 /* TrashWizardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrashWizardViewModel.swift; sourceTree = "<group>"; };
 		E089D8BD2AEAC9A700DE9748 /* TrashWizardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrashWizardView.swift; sourceTree = "<group>"; };
 		E089D8C02AEAE55500DE9748 /* TrashClassifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrashClassifier.swift; sourceTree = "<group>"; };
-		E0D0B8C92B24E668003497FA /* TrashImageClassificationModel.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = TrashImageClassificationModel.mlmodel; sourceTree = "<group>"; };
-		E0D0B8CB2B24E959003497FA /* TrashImageClassificationModel.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; path = TrashImageClassificationModel.mlpackage; sourceTree = "<group>"; };
+		E0D0B8CD2B24EEAB003497FA /* TrashImageClassificationModel.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; path = TrashImageClassificationModel.mlpackage; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -361,8 +359,7 @@
 		E037849B2AE8428E00A49BB7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				E0D0B8CB2B24E959003497FA /* TrashImageClassificationModel.mlpackage */,
-				E0D0B8C92B24E668003497FA /* TrashImageClassificationModel.mlmodel */,
+				E0D0B8CD2B24EEAB003497FA /* TrashImageClassificationModel.mlpackage */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -526,18 +523,17 @@
 				88E269202AB5C01C00EDA486 /* MapViewRepresentable.swift in Sources */,
 				E089D8C12AEAE55500DE9748 /* TrashClassifier.swift in Sources */,
 				8832A4042AAC9E0000FC348C /* BottomNavigationView.swift in Sources */,
+				E0D0B8CE2B24EEAB003497FA /* TrashImageClassificationModel.mlpackage in Sources */,
 				8864A2592AB5CDE300E9F559 /* LocationSearchActivationView.swift in Sources */,
 				881FDA1C2AD1B94D00363234 /* UserManagementHeaderView.swift in Sources */,
 				88269DF92AE55F130050345E /* ResetPasswordViewModel.swift in Sources */,
 				881FDA1C2AD1B94D00363234 /* UserManagementHeaderView.swift in Sources */,
 				8815E09F2AC07EA2003E2EAE /* AppColors.swift in Sources */,
 				885B25692A9110F9007D3A54 /* KeychainHelper.swift in Sources */,
-				E0D0B8CA2B24E668003497FA /* TrashImageClassificationModel.mlmodel in Sources */,
 				E037849F2AE844CD00A49BB7 /* ImageClassificationService.swift in Sources */,
 				88755D9A2AD5A9F700D43C85 /* DarkModeManager.swift in Sources */,
 				885B254D2A910838007D3A54 /* TrashifyApp.swift in Sources */,
 				881FDA222AD1B98800363234 /* SignOutView.swift in Sources */,
-				E0D0B8CC2B24E95A003497FA /* TrashImageClassificationModel.mlpackage in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
