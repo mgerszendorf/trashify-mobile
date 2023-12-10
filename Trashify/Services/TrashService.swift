@@ -48,7 +48,7 @@ enum ServiceError: Error {
 }
 
 class TrashService {
-    private let baseURL = ProcessInfo.processInfo.environment["BASE_URL"] ?? ""
+    private let baseURL = "https://full-relevant-cicada.ngrok-free.app/api/v1"
 
     func fetchTrashInDistance(accessToken: String, request: GetTrashInDistanceRequest) async throws -> [TrashInDistance] {
         do {

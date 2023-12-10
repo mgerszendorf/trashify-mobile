@@ -93,7 +93,7 @@ struct ResetPasswordeResponse: Decodable {
 
 
 class AuthenticationService {
-    let baseURL = ProcessInfo.processInfo.environment["BASE_URL"] ?? ""
+    let baseURL = "https://full-relevant-cicada.ngrok-free.app/api/v1"
     
     func login(email: String, password: String) async throws -> (accessToken: String, refreshToken: String) {
         guard let url = URL(string: "\(baseURL)/accounts/login") else {
