@@ -61,7 +61,7 @@
       <EnvironmentVariables>
          <EnvironmentVariable
             key = "BASE_URL"
-            value = "http://localhost:50000/api/v1"
+            value = "https://full-relevant-cicada.ngrok-free.app/api/v1"
             isEnabled = "YES">
          </EnvironmentVariable>
       </EnvironmentVariables>
