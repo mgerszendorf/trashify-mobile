@@ -1,4 +1,4 @@
-# Cryptocurrency app
+# Trashify
 
 ## Project name & pitch
 
